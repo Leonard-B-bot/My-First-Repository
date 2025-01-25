@@ -6,16 +6,36 @@ body {
     justify-content: center;
     background-color: #0d0d0d;
     color: #fff;
-    
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
+/* Adjust the container width and section padding */
 section {
     display: grid;
-    gap: 10px;
-    width: 100px;
-    padding: 10px;
+    gap: 20px;
+    width: 80%; /* Makes the sections take up more space */
+    max-width: 800px; /* Sets a limit on the width */
+    padding: 20px;
     box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+}
 
+h2 {
+    margin-bottom: 10px;
+    color: #f1c40f; /* Adds a highlight color for headings */
+}
+
+p {
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Optional: Add hover effect on sections */
+section:hover {
+    background-color: #333;
 }
