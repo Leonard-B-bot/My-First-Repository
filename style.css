@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +9,7 @@ body {
     color: #fff;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scroll when hovering */
 }
 
 /* Section styling */
@@ -20,10 +22,11 @@ section {
     background-color: rgba(26, 26, 26, 0.9);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    overflow: hidden; /* Ensures images stay within the section */
+    overflow: hidden;
+    z-index: 1; /* Keeps the section text above the image */
 }
 
-/* Image styling */
+/* Image styling for the initial view */
 section img {
     position: absolute;
     top: 0;
@@ -36,21 +39,33 @@ section img {
     transition: all 0.5s ease;
 }
 
-/* Hover effect to expand image */
+/* Hover effect to make the image expand to the full screen */
 section:hover img {
-    transform: scale(1.2); /* Expands the image */
-    opacity: 0.6; /* Increases image visibility */
+    position: fixed; /* Makes the image cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    opacity: 0.7; /* Increase opacity on hover */
+    z-index: 1000; /* Brings the image on top of everything */
+    transition: all 0.5s ease;
 }
 
 /* Headings */
 h2 {
     margin-bottom: 10px;
-    color: #f1c40f; /* Adds a highlight color for headings */
+    color: #f1c40f;
 }
 
 /* Paragraph styling */
 p {
     line-height: 1.6;
     font-size: 16px;
-    z-index: 1; /* Keeps text on top */
+    z-index: 1;
+}
+
+/* Ensuring text stays on top during hover */
+section:hover h2, section:hover p {
+    z-index: 1001;
+    position: relative;
 }
