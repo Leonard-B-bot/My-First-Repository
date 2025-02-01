@@ -65,33 +65,51 @@ section:hover .text-overlay {
     position: relative;
 }
 
-/* Dropdown sections styling */
-.dropdown-header {
+/* Floating Sections Styling */
+.floating-box {
+    position: fixed;
+    width: 150px;
+    padding: 10px;
     background-color: #333;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 0;
     color: #f1c40f;
-    font-size: 18px;
-    text-align: left;
-}
-
-.dropdown-content {
-    display: none;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    margin-top: 10px;
     border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1000;
 }
 
-.dropdown-header:hover {
-    background-color: #444;
+.floating-box .floating-content {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
-/* Expand content on click */
-.dropdown.open .dropdown-content {
+/* Hover effect for floating sections */
+.floating-box:hover .floating-content {
     display: block;
-    transition: all 0.3s ease;
 }
 
+/* Position About Me box in the bottom-left corner */
+.about-me {
+    bottom: 20px;
+    left: 20px;
+}
+
+/* Position Skills box in the bottom-right corner */
+.skills {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Adjust for top corner placement (optional) */
+/* .about-me {
+    top: 20px;
+    left: 20px;
+}
+
+.skills {
+    top: 20px;
+    right: 20px;
+} */
