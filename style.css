@@ -10,6 +10,7 @@ body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
     overflow-x: hidden; /* Prevents horizontal scroll when hovering */
+    flex-direction: column; /* Stack sections vertically */
 }
 
 /* Section styling */
@@ -23,11 +24,11 @@ section {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    z-index: 1; /* Keeps the section text above the image */
-    transition: all 0.5s ease; /* Transition for smooth resizing */
+    z-index: 1;
+    transition: all 0.5s ease;
 }
 
-/* Image styling for the initial view */
+/* Image styling for existing sections */
 section img {
     position: absolute;
     top: 0;
@@ -40,48 +41,57 @@ section img {
     transition: all 0.5s ease;
 }
 
-/* Hover effect to make the image expand to the full screen */
 section:hover img {
-    position: fixed; /* Makes the image cover the entire screen */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    opacity: 0.7; /* Increase opacity on hover */
-    z-index: 1000; /* Brings the image on top of everything */
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.7;
+    z-index: 1000;
     transition: all 0.5s ease;
 }
 
-/* Dark background behind text when hovering */
 section .text-overlay {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 8px;
     transition: all 0.5s ease;
 }
 
-/* Ensuring text overlay stays on top when hovered */
 section:hover .text-overlay {
     z-index: 1001;
     position: relative;
 }
 
-/* Headings */
-h2 {
-    margin-bottom: 10px;
+/* Dropdown sections styling */
+.dropdown-header {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0;
     color: #f1c40f;
+    font-size: 18px;
+    text-align: left;
 }
 
-/* Paragraph styling */
-p {
-    line-height: 1.6;
-    font-size: 16px;
-    z-index: 1;
+.dropdown-content {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
 }
 
-/* Ensure the text overlay disappears when not hovering */
-section:hover h2, section:hover p {
-    z-index: 1001;
-    position: relative;
+.dropdown-header:hover {
+    background-color: #444;
 }
+
+/* Expand content on click */
+.dropdown.open .dropdown-content {
+    display: block;
+    transition: all 0.3s ease;
+}
+
